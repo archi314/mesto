@@ -18,8 +18,4 @@
 
 **Ссылка на проект**
 
-<<<<<<< HEAD
-* [Ссылка на проект Mesto](https://archi314.github.io/mesto/)
-=======
-* [Ссылка на проект Mesto](https://archi314.github.io/mesto/)
->>>>>>> f6cce74498b75e3860ead29dae0336ae9b47e7d0
+* [Ссылка на проект Mesto]()
