@@ -1,5 +1,5 @@
 .popup__user-description {
-    max-width: 358px;
+    min-width: 358px;
     margin: 0 0 48px 0;
     padding: 0 0 13px 0;
     font-style: normal;
@@ -9,3 +9,10 @@
     border: none;
     border-bottom: 1px solid rgba(0,0,0,.2);
   }
+
+@media screen and (max-width: 650px) {
+  .popup__user-description {
+    min-width: 238px;
+    margin: 0 0 35px 0;
+  }
+}

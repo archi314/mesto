@@ -1,14 +1,14 @@
 .profile__add-icon {
     object-fit: cover;
-    min-width: 22px;
-    min-height: 22px;
+    max-width: 22px;
+    max-height: 22px;
     margin: auto;
   }
   
   @media screen and (max-width: 650px) {
     .profile__add-icon {
-      min-width: 16px;
-      min-height: 16px;
+      max-width: 16px;
+      max-height: 16px;
     }
   }
   

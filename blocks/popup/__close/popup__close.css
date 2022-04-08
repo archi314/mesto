@@ -17,6 +17,15 @@
     transition: .5s ease;
   }
   
-  .popup__close:hover {
-    opacity: 0.6;
+.popup__close:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 650px) {
+  .popup__close {
+    min-width: 20px;
+    min-height: 20px;
+    right: 0px;
+    top: -35px;
   }
+}
