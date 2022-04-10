@@ -10,7 +10,7 @@ let profileStatus = document.querySelector('.profile__subtitle');
 
 function toggleModalWindow() { 
   modalWindow.classList.toggle('popup_opened');
-  if (popup.classList.contains('popup_opened')) {
+  if (modalWindow.classList.contains('popup_opened')) {
     nameInput.value = profileName.textContent;
     jobInput.value = profileStatus.textContent;
   }
