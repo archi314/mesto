@@ -1,4 +1,4 @@
-.popup__user-name {
+.popup__input-name {
     min-width: 358px;
     margin: 0 0 30px 0;
     padding: 0 0 13px 0;
@@ -11,7 +11,7 @@
   }
 
 @media screen and (max-width: 650px) {
-  .popup__user-name {
+  .popup__input-name {
     min-width: 238px;
   }
 }

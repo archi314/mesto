@@ -13,8 +13,7 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    opacity: 1;
-    transition: .5s ease;
+    transition: opacity 0.3s;
   }
   
 .popup__close:hover {

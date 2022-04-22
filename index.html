@@ -33,71 +33,55 @@
       </button>
     </section>
 
-    <section class="elements">
-      <article class="element">
-        <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск.">
-        <div class="element__column">
-          <h2 class="element__title">Карачаевск</h2>
-          <button class="element__heart-icon" type="button" title="Мне нравится" aria-label="Кнопка Мне нравится."></button>
-        </div>
-      </article>
- 
-      <article class="element">
-        <img class="element__image" src="./images/elbrus.jpg" alt="Гора Эльбрус.">
-        <div class="element__column">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__heart-icon" type="button" title="Мне нравится" aria-label="Кнопка Мне нравится."></button>
-        </div>
-      </article>
-          
-      <article class="element">
-        <img class="element__image" src="./images/dombai.jpg" alt="Домбай.">
-        <div class="element__column">
-          <h2 class="element__title">Домбай</h2>
-          <button class="element__heart-icon" type="button" title="Мне нравится" aria-label="Кнопка Мне нравится."></button>
-        </div>
-      </article>
-          
-      <article class="element">
-        <img class="element__image" src="./images/elbrus.jpg" alt="Гора Эльбрус.">
-        <div class="element__column">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__heart-icon" type="button" title="Мне нравится" aria-label="Кнопка Мне нравится."></button>
-        </div>
-      </article>
-          
-      <article class="element">
-        <img class="element__image" src="./images/dombai.jpg" alt="Домбай.">
-        <div class="element__column">
-          <h2 class="element__title">Домбай</h2>
-          <button class="element__heart-icon" type="button" title="Мне нравится" aria-label="Кнопка Мне нравится."></button>
-        </div>
-      </article>
-          
-      <article class="element">
-        <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск.">
-        <div class="element__column">
-          <h2 class="element__title">Карачаево-Черкесия</h2>
-          <button class="element__heart-icon" type="button" title="Мне нравится" aria-label="Кнопка Мне нравится."></button>
-        </div>
-      </article>
-    </section>
+    <section class="elements"></section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
 
-  <div class="popup">
+  <div class="popup popup_place_edit">
     <div class="popup__container">
       <button class="popup__close"  type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form name="popup-form" method="post" class="popup__form"> 
-        <input name="popup-name" type="text" class="popup__user-name" placeholder="Жак-Ив Кусто">
-        <input name="popup-status" type="text" class="popup__user-description" placeholder="Исследователь океана">
+        <input name="popup-name" type="text" class="popup__input-name" placeholder="Жак-Ив Кусто">
+        <input name="popup-status" type="text" class="popup__input-description" placeholder="Исследователь океана">
         <button name="popup-submit" type="submit" class="popup__submit-button" title="Сохранить" aria-label="Кнопка, сохраняющая изменения в профиле.">Сохранить</button>
       </form>
     </div>
   </div>
+
+  <div class="popup popup_place_add">
+    <div class="popup__container">
+      <button class="popup__close" type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form name="popup-add-form" method="post" class="popup__form"> 
+        <input name="popup-add-name" type="text" class="popup__input-name" placeholder="Название">
+        <input name="popup-add-link" type="text" class="popup__input-description" placeholder="Ссылка на картинку">
+        <button name="popup-add-submit" type="submit" class="popup__submit-button" title="Создать" aria-label="Кнопка, создающая новое место с описанием на странице.">Создать</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_place_image">
+    <figure class="popup__container popup__container_image">
+      <button class="popup__close" type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
+      <img class="popup__card-image" src="#" alt="">
+      <figcaption class="popup__card-text"></figcaption>
+    </figure>
+  </div>
+
+  <template class="template">
+    <article class="element">
+      <button type="button" class="element__busket-icon"></button>
+      <img class="element__image" src="#" alt="">
+      <div class="element__column">
+        <h2 class="element__title"></h2>
+        <button class="element__heart-icon" type="button" title="Мне нравится" aria-label="Кнопка Мне нравится."></button>
+      </div>
+    </article>
+  </template>
+
 <script src="./scripts/index.js"></script>
 </body>
 </html>

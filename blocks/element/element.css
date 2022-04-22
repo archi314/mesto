@@ -1,6 +1,8 @@
 .element {
-    max-width: 282px;
-    min-height: 361px;
+    position: relative;
+    width: 282px;
+    max-height: 361px;
+    box-sizing: border-box;
     border-radius: 10px;
     background-color: #FFFFFF;
   }
