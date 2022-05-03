@@ -22,31 +22,49 @@ const addButton = document.querySelector(".profile__add-button");
 const addTitleInput = popupAdd.querySelector(".popup__input-name");
 const addLinkInput = popupAdd.querySelector(".popup__input-description");
 
-// Открытие и закрытие попапов
+
+const popups = document.querySelectorAll(".popup");
+
+
+// Открытие попапов
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener('keydown', handleEscClose);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener('keydown', handleEscClose);
 }
 
 addButton.addEventListener("click", function () {
   openPopup(popupAdd);
 });
 
-closeEditPopup.addEventListener("click", function () {
-  closePopup(popupEdit);
+
+// закрытие попапа на оверлее и на значок закрытия
+
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup);
+    }
+    if(evt.target.classList.contains('popup__close')) {
+      closePopup(popup);
+    }
+  })
 });
 
-closeAddPopup.addEventListener("click", function () {
-  closePopup(popupAdd);
-});
 
-closePicturePopup.addEventListener("click", function () {
-  closePopup(popupPicture);
-});
+// закрытие на событии esc
+
+function handleEscClose(evt) {
+  if (evt.key === "Escape") {
+    const openedModalWindow = document.querySelector(".popup_opened");
+    closePopup(openedModalWindow);
+  }
+}
 
 
 // Редактирование профиля
@@ -84,7 +102,7 @@ function createNewCard(evt) {
 popupAdd.addEventListener("submit", createNewCard);
 
 
-//Удаление элементов
+//Удаление элементов на клик на корзину
 
 function removeElement(evt) {
   const element = evt.target.closest(".element");
