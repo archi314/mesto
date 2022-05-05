@@ -22,6 +22,8 @@ const addButton = document.querySelector(".profile__add-button");
 const addTitleInput = popupAdd.querySelector(".popup__input-name");
 const addLinkInput = popupAdd.querySelector(".popup__input-description");
 
+const popupCardImage = document.querySelector(".popup__card-image");
+const popupCardText = document.querySelector(".popup__card-text");
 
 const popups = document.querySelectorAll(".popup");
 
@@ -30,7 +32,7 @@ const popups = document.querySelectorAll(".popup");
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener('keydown', handleEscClose);
+  document.addEventListener('keydown', handleEscClose)
 }
 
 function closePopup(popup) {
@@ -40,6 +42,7 @@ function closePopup(popup) {
 
 addButton.addEventListener("click", function () {
   openPopup(popupAdd);
+  toggleButtonState(config, popupAddForm);
 });
 
 
@@ -144,9 +147,6 @@ function getElement(item) {
 
 
   //Увеличение картинки
-
-  const popupCardImage = document.querySelector(".popup__card-image");
-  const popupCardText = document.querySelector(".popup__card-text");
 
   function openImage() {
     openPopup(popupPicture);
