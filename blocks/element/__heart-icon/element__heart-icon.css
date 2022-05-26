@@ -1,7 +1,7 @@
 .element__heart-icon {
     display: flex;
     flex-shrink: 0;
-    min-width: 22px;
+    min-width: 23px;
     min-height: 19px;
     margin: auto 0;
     background-color: transparent;
