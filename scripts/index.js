@@ -67,7 +67,7 @@ const profileFormValidator = new FormValidator(config, popupEditForm);
 cardFormValidator.enableValidation();
 profileFormValidator.enableValidation();
 
-// Открытие попапов
+ /** Открытие попапов. */
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -79,25 +79,27 @@ function closePopup(popup) {
   document.removeEventListener("keydown", handleEscClose);
 }
 
-addButton.addEventListener("click", function () {
+
+function openAddWindow() {
   openPopup(popupAdd);
   cardFormValidator.toggleButtonState();
-});
+}
 
-// закрытие попапа на оверлее и на значок закрытия
+addButton.addEventListener("click", openAddWindow);
+
+
+/** Закрытие попапа на оверлее и на значок закрытия. */
 
 popups.forEach((popup) => {
   popup.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains("popup_opened")) {
-      closePopup(popup);
-    }
-    if (evt.target.classList.contains("popup__close")) {
+    if (evt.target.classList.contains("popup_opened") || evt.target.classList.contains("popup__close")) {
       closePopup(popup);
     }
   });
 });
 
-// закрытие на событии esc
+
+/** Закрытие на событии esc. */
 
 function handleEscClose(evt) {
   if (evt.key === "Escape") {
@@ -106,7 +108,7 @@ function handleEscClose(evt) {
   }
 }
 
-// Редактирование профиля
+/** Редактирование профиля. */
 
 function handleOpenProfile() {
   nameInput.value = profileName.textContent;
@@ -125,7 +127,7 @@ function handleProfileFormSubmit(evt) {
 
 popupEditForm.addEventListener("submit", handleProfileFormSubmit);
 
-// Добавление карточек
+/** Добавление карточек. */
 function addNewCard(evt) {
   evt.preventDefault();
   cardsContainer.prepend(
@@ -145,7 +147,7 @@ function addNewCard(evt) {
 popupAdd.addEventListener("submit", addNewCard);
 
 
-// Выгрузка карточек
+/** Выгрузка карточек. */
 
 function createCard(data, link, action) {
   const card = new Card(data, link, action);
@@ -156,7 +158,7 @@ initialCards.map((data) => {
   cardsContainer.append(createCard(data, ".template-elements", openImage));
 });
 
-// Увеличение картинки
+/** Увеличение картинки. */
 
 function openImage(name, link) {
   openPopup(popupPicture);
