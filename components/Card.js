@@ -1,9 +1,9 @@
 export class Card {
-  constructor(data, templateSelector, openImage) {
+  constructor(data, templateSelector, {handleCardClick}) {
     this._link = data.link;
     this._name = data.name;
     this._templateSelector = templateSelector;
-    this._openImage = openImage;
+    this._handleCardClick = handleCardClick;
   }
 
   _getElementTemplate() {
@@ -37,7 +37,7 @@ export class Card {
     this._removeButton.addEventListener("click", () => this._removeElement());
 
     this._imageElement.addEventListener("click", () => {
-      this._openImage(this._name, this._link);
+      this._handleCardClick(this._name, this._link);
     });
   }
 

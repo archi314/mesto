@@ -43,10 +43,10 @@
     <div class="popup__container">
       <button class="popup__close"  type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form name="popup-form" method="post" class="popup__form" novalidate> 
-        <input name="popup-name" class="popup__input popup__input-name" id="name" placeholder="Имя" type="text" minlength="2" maxlength="40" required>
+      <form name="popup-form" method="post" class="popup__form popup__form_edit" novalidate> 
+        <input name="name" class="popup__input popup__input-name" id="name" placeholder="Имя" type="text" minlength="2" maxlength="40" required>
         <span class="popup__error name-error" id="name-error"></span>
-        <input name="popup-status" class="popup__input popup__input_status popup__input-description" id="status" placeholder="Профессия" type="text" minlength="2" maxlength="200" required>
+        <input name="status" class="popup__input popup__input_status popup__input-description" id="status" placeholder="Профессия" type="text" minlength="2" maxlength="200" required>
         <span class='popup__error status-error' id="status-error"></span>
         <button name="popup-submit" type="submit" class="popup__button" title="Сохранить" aria-label="Кнопка, сохраняющая изменения в профиле.">Сохранить</button>
       </form>
@@ -57,10 +57,10 @@
     <div class="popup__container">
       <button class="popup__close" type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
       <h2 class="popup__title">Новое место</h2>
-      <form name="popup-add-form" method="post" class="popup__form" novalidate> 
-        <input name="popup-add-name" class="popup__input popup__input-name" id="title" placeholder="Название" type="text" minlength="2" maxlength="30" required>
+      <form name="popup-add-form" method="post" class="popup__form popup__form_add" novalidate> 
+        <input name="title" class="popup__input popup__input-name" id="title" placeholder="Название" type="text" minlength="2" maxlength="30" required>
         <span class="popup__error title-error" id="title-error"></span>
-        <input name="popup-add-link" class="popup__input popup__input_status popup__input-description" id="link" placeholder="Ссылка на картинку" type="url" required>
+        <input name="link" class="popup__input popup__input_status popup__input-description" id="link" placeholder="Ссылка на картинку" type="url" required>
         <span class='popup__error link-error' id="link-error"></span>
         <button name="popup-add-submit" type="submit" class="popup__button" title="Создать" aria-label="Кнопка, создающая новое место с описанием на странице.">Создать</button>
       </form>
@@ -86,6 +86,6 @@
     </article>
   </template>
 
-<script type="module" src="./scripts/index.js"></script>
+<script type="module" src="./pages/index.js"></script>
 </body>
 </html>
