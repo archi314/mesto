@@ -8,28 +8,27 @@
     <meta name="keywords" content="Mesto Russia">
     <meta name="author" content="Артем Стукалов">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="./images/Mesto_logo.svg" alt="Логотип.">
+    <img class="header__logo" src="<%=require('./images/Mesto_logo.svg')%>" alt="Логотип.">
   </header>
 
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="./images/kusto-profile.jpg" alt="Профиль пользователя.">
+      <img class="profile__avatar" src="<%=require('./images/kusto-profile.jpg')%>" alt="Профиль пользователя.">
       <div class="profile__info">
         <div class="profile__column">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__edit-button" type="button" title="Редактировать" aria-label="Кнопка, позволяющая редактировать профиль пользователя">
-            <img class="profile__edit-icon" src="./images/edit_icon.svg" alt="Кнопка, редактирующая профиль пользователя.">
+            <img class="profile__edit-icon" src="<%=require('./images/edit_icon.svg')%>" alt="Кнопка, редактирующая профиль пользователя.">
           </button>
         </div>
         <p class="profile__subtitle">Исследователь океана</p>
       </div>
       <button class="profile__add-button" type="button" title="Добавить" aria-label="Кнопка, которая добаляет элементы на страницу.">
-        <img class="profile__add-icon" src="./images/add_icon.svg" alt="Кнопка, добавляющая элементы на страницу.">
+        <img class="profile__add-icon" src="<%=require('./images/add_icon.svg')%>" alt="Кнопка, добавляющая элементы на страницу.">
       </button>
     </section>
 
@@ -86,6 +85,5 @@
     </article>
   </template>
 
-<script type="module" src="./pages/index.js"></script>
 </body>
 </html>
