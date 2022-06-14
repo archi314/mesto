@@ -25,7 +25,7 @@ export class Popup {
 
   /** Закрытие попапа на оверлее и на значок закрытия. */
   setEventListeners() {
-    this._popupElement.addEventListener("click", (evt) => {
+    this._popupElement.addEventListener("mousedown", (evt) => {
       if (
         evt.target.classList.contains("popup_opened") ||
         evt.target.classList.contains("popup__close")

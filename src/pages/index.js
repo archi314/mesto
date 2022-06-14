@@ -47,17 +47,17 @@ function createCard(data) {
 
 /** Блок Section. Рендеринг темплейта. */
 
-const listContainer = new Section(
+const cardList = new Section(
   {
     items: initialCards,
     renderer: (data) => {
-      listContainer.addItem(createCard(data));
+      cardList.addItem(createCard(data));
     },
   },
   ".elements"
 );
 
-listContainer.renderItems();
+cardList.renderItems();
 
 
 // Блок UserInfo. Редактирование профиля.
@@ -78,7 +78,7 @@ popupWithFormEdit.setEventListeners();
 
 const changeProfileInfo = () => {
   const userData = userInfo.getUserInfo();
-  nameInput.value = userData.name;
+  nameInput.value = userData.title;
   descriptionInput.value = userData.status;
 };
 
@@ -88,18 +88,12 @@ const changeProfileInfo = () => {
 const popupWithFormAdd = new PopupWithForm(
   ".popup_place_add",
   {
-    submitHandler: () => {
-      userInfo.getUserInfo();
-      cardsContainer.prepend(
-        createCard({
-          name: addTitleInput.value,
-          link: addLinkInput.value,
-        })
-      );
+    submitHandler: (submitData) => {
+      cardList.prependItem(
+        createCard(submitData));
       popupWithFormAdd.close();
-    },
-  },
-  ".popup__form_add"
+    }
+  }
 );
 
 popupWithFormAdd.setEventListeners();
@@ -120,9 +114,11 @@ popupOpenImage.setEventListeners();
 editButton.addEventListener("click", () => {
   popupWithFormEdit.open();
   changeProfileInfo();
+  profileFormValidator.resetValidation();
 });
 
 addButton.addEventListener("click", () => {
   popupWithFormAdd.open();
+  cardFormValidator.resetValidation();
   cardFormValidator.toggleButtonState();
 });
