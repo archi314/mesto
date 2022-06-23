@@ -1,11 +1,14 @@
 import { Popup } from "./Popup.js";
 
 export class PopupWithForm extends Popup {
-  constructor(popupSelector, { submitHandler }) {
+  constructor(popupSelector, { submitHandler }, formSelector) {
     super(popupSelector);
-    this._submitHandler = submitHandler;
+    this._form = this._popupElement.querySelector(formSelector);
     this._popupForm = this._popupElement.querySelector(".popup__form");
     this._inputSets = this._popupElement.querySelectorAll(".popup__input");
+    this._popupButton = this._popupElement.querySelector(".popup__button")
+    this._popupButtonText = this._popupButton.textContent;
+    this._submitHandler = submitHandler;
   }
 
   _getInputValues() {
@@ -27,5 +30,14 @@ export class PopupWithForm extends Popup {
   close() {
     super.close();
     this._popupForm.reset();
+  }
+
+  // Изменяем состояние кнопки во время загрузки УЛУЧШИТЬ
+  loading(isLoading) {
+    if (isLoading) {
+      this._popupButton.textContent = 'Сохранение...'
+    } else {
+      this._popupButton.textContent = this._popupButtonText;
+    }
   }
 }

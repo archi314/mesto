@@ -17,7 +17,9 @@
 
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/kusto-profile.jpg')%>" alt="Профиль пользователя.">
+      <div class="profile__overlay profile__edit-avatar-button">
+        <img class="profile__avatar" src="<%=require('./images/kusto-profile.jpg')%>" alt="Профиль пользователя.">
+      </div>
       <div class="profile__info">
         <div class="profile__column">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -73,6 +75,31 @@
       <figcaption class="popup__card-text"></figcaption>
     </figure>
   </div>
+  
+  <div class="popup popup_type_delete-confirmation">
+    <div class="popup__container">
+      <button class="popup__close" type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form class="popup__form popup__form_delete-card" novalidate> 
+         <button type="submit" class="popup__button" title="Подтверждение удаления карточки" aria-label="Кнопка, подтверждающая удаление карточки со страницы.">Да</button>
+      </form>
+    </div>
+  </div>
+    
+  <div class="popup popup_type_edit-avatar">
+    <div class="popup__container popup__container_additional">
+      <button class="popup__close" type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form name="avatar" method="post" class="popup__form popup__form-avatar" id="avatar" novalidate> 
+        <input name="edit-avatar" class="popup__input popup__input-avatar" id="edit-avatar" placeholder="Ссылка на картинку" type="url" required>
+        <span class="popup__error edit-avatar-error" id="edit-avatar-error"></span>
+        <button name="popup-avatar-submit" type="submit" class="popup__button" title="Сохранить" aria-label="Кнопка, сохраняющая новый аватор пользователя.">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+
+
 
   <template class="template-elements">
     <article class="element">
@@ -80,7 +107,10 @@
       <img class="element__image" src="#" alt="">
       <div class="element__column">
         <h2 class="element__title"></h2>
-        <button class="element__heart-icon" type="button" title="Мне нравится" aria-label="Кнопка Мне нравится."></button>
+        <div class="element__heart-container">
+          <button class="element__heart-icon" type="button" title="Мне нравится" aria-label="Кнопка Мне нравится."></button>
+          <span class="element__heart-counter">0</span>
+        </div>  
       </div>
     </article>
   </template>
