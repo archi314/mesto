@@ -9,6 +9,10 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/archi314/mesto.git"
+  },
   "author": "Artem Stukalov",
   "license": "ISC",
   "devDependencies": {
