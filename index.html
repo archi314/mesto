@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Веб приложение Mesto Russia">
+    <meta name="keywords" content="Mesto Russia">
+    <meta name="author" content="Артем Стукалов">
+    <title>Mesto</title>
+<script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+
+<body class="page">
+  <header class="header">
+    <img class="header__logo" src="bbe2a6eafac19c3d031c.svg" alt="Логотип.">
+  </header>
+
+  <main class="content">
+    <section class="profile">
+      <div class="profile__overlay profile__edit-avatar-button">
+        <img class="profile__avatar" src="#" alt="Профиль пользователя.">
+      </div>
+      <div class="profile__info">
+        <div class="profile__column">
+          <h1 class="profile__title">...</h1>
+          <button class="profile__edit-button" type="button" title="Редактировать" aria-label="Кнопка, позволяющая редактировать профиль пользователя">
+            <img class="profile__edit-icon" src="6c7bf05444b9793fdf6e.svg" alt="Кнопка, редактирующая профиль пользователя.">
+          </button>
+        </div>
+        <p class="profile__subtitle">...</p>
+      </div>
+      <button class="profile__add-button" type="button" title="Добавить" aria-label="Кнопка, которая добаляет элементы на страницу.">
+        <img class="profile__add-icon" src="bed8c136e13907f5eefb.svg" alt="Кнопка, добавляющая элементы на страницу.">
+      </button>
+    </section>
+
+    <section class="elements"></section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+  </footer>
+
+  <div class="popup popup_place_edit">
+    <div class="popup__container">
+      <button class="popup__close"  type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form name="popup-form" method="post" class="popup__form popup__form_edit" novalidate> 
+        <input name="title" class="popup__input popup__input-name" id="title" placeholder="Имя" type="text" minlength="2" maxlength="40" required>
+        <span class="popup__error title-error" id="title-error"></span>
+        <input name="status" class="popup__input popup__input_status popup__input-description" id="status" placeholder="Профессия" type="text" minlength="2" maxlength="200" required>
+        <span class='popup__error status-error' id="status-error"></span>
+        <button name="popup-submit" type="submit" class="popup__button" title="Сохранить" aria-label="Кнопка, сохраняющая изменения в профиле.">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_place_add">
+    <div class="popup__container">
+      <button class="popup__close" type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form name="popup-add-form" method="post" class="popup__form popup__form_add" novalidate> 
+        <input name="name" class="popup__input popup__input-name" id="name" placeholder="Название" type="text" minlength="2" maxlength="30" required>
+        <span class="popup__error name-error" id="name-error"></span>
+        <input name="link" class="popup__input popup__input_status popup__input-description" id="link" placeholder="Ссылка на картинку" type="url" required>
+        <span class='popup__error link-error' id="link-error"></span>
+        <button name="popup-add-submit" type="submit" class="popup__button" title="Создать" aria-label="Кнопка, создающая новое место с описанием на странице.">Создать</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_place_image">
+    <figure class="popup__container popup__container_image">
+      <button class="popup__close" type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
+      <img class="popup__card-image" src="#" alt="">
+      <figcaption class="popup__card-text"></figcaption>
+    </figure>
+  </div>
+  
+  <div class="popup popup_type_delete-confirmation">
+    <div class="popup__container">
+      <button class="popup__close" type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form class="popup__form popup__form_delete-card" novalidate> 
+         <button type="submit" class="popup__button" title="Подтверждение удаления карточки" aria-label="Кнопка, подтверждающая удаление карточки со страницы.">Да</button>
+      </form>
+    </div>
+  </div>
+    
+  <div class="popup popup_type_edit-avatar">
+    <div class="popup__container">
+      <button class="popup__close" type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form name="avatar" method="post" class="popup__form popup__form-avatar" id="avatar" novalidate> 
+        <input name="edit-avatar" class="popup__input popup__input-avatar" id="edit-avatar" placeholder="Ссылка на картинку" type="url" required>
+        <span class="popup__error edit-avatar-error" id="edit-avatar-error"></span>
+        <button name="popup-avatar-submit" type="submit" class="popup__button" title="Сохранить" aria-label="Кнопка, сохраняющая новый аватор пользователя.">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+  <template class="template-elements">
+    <article class="element">
+      <button type="button" class="element__busket-icon"></button>
+      <img class="element__image" src="#" alt="">
+      <div class="element__column">
+        <h2 class="element__title"></h2>
+        <div class="element__heart-container">
+          <button class="element__heart-icon" type="button" title="Мне нравится" aria-label="Кнопка Мне нравится."></button>
+          <span class="element__heart-counter">0</span>
+        </div>  
+      </div>
+    </article>
+  </template>
+
+</body>
+</html>
