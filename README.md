@@ -28,4 +28,4 @@
 
 **Ссылка на проект**
 
-* [Ссылка на проект Mesto](https://archi314.github.io/mesto/)
+* [Ссылка на проект Mesto](git+https://github.com/archi314/mesto.git)
