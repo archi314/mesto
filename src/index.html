@@ -18,16 +18,16 @@
   <main class="content">
     <section class="profile">
       <div class="profile__overlay profile__edit-avatar-button">
-        <img class="profile__avatar" src="<%=require('./images/kusto-profile.jpg')%>" alt="Профиль пользователя.">
+        <img class="profile__avatar" src="#" alt="Профиль пользователя.">
       </div>
       <div class="profile__info">
         <div class="profile__column">
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <h1 class="profile__title">...</h1>
           <button class="profile__edit-button" type="button" title="Редактировать" aria-label="Кнопка, позволяющая редактировать профиль пользователя">
             <img class="profile__edit-icon" src="<%=require('./images/edit_icon.svg')%>" alt="Кнопка, редактирующая профиль пользователя.">
           </button>
         </div>
-        <p class="profile__subtitle">Исследователь океана</p>
+        <p class="profile__subtitle">...</p>
       </div>
       <button class="profile__add-button" type="button" title="Добавить" aria-label="Кнопка, которая добаляет элементы на страницу.">
         <img class="profile__add-icon" src="<%=require('./images/add_icon.svg')%>" alt="Кнопка, добавляющая элементы на страницу.">
@@ -87,7 +87,7 @@
   </div>
     
   <div class="popup popup_type_edit-avatar">
-    <div class="popup__container popup__container_additional">
+    <div class="popup__container">
       <button class="popup__close" type="button" title="Закрыть" aria-label="Кнопка, закрывающая модальное окно."></button>
       <h2 class="popup__title">Обновить аватар</h2>
       <form name="avatar" method="post" class="popup__form popup__form-avatar" id="avatar" novalidate> 
@@ -97,9 +97,6 @@
       </form>
     </div>
   </div>
-
-
-
 
   <template class="template-elements">
     <article class="element">

@@ -6,18 +6,17 @@ export class UserInfo {
   }
 
   getUserInfo() {
-    const user = {
+    const item = {
       title: this._title.textContent,
       status: this._status.textContent,
-   //   avatar: this._avatar.src
     };
-    return user;// улучшить user
+    return item;
   }
 
   setUserInfo(data) {
     this._title.textContent = data.name;
     this._status.textContent = data.about;
-    //this._avatar.src = data.avatar;
+    this._avatar.src = data.avatar;
   }
 
   setUserAvatar(avatar) {

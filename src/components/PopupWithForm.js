@@ -6,7 +6,7 @@ export class PopupWithForm extends Popup {
     this._form = this._popupElement.querySelector(formSelector);
     this._popupForm = this._popupElement.querySelector(".popup__form");
     this._inputSets = this._popupElement.querySelectorAll(".popup__input");
-    this._popupButton = this._popupElement.querySelector(".popup__button")
+    this._popupButton = this._popupElement.querySelector(".popup__button");
     this._popupButtonText = this._popupButton.textContent;
     this._submitHandler = submitHandler;
   }
@@ -32,10 +32,9 @@ export class PopupWithForm extends Popup {
     this._popupForm.reset();
   }
 
-  // Изменяем состояние кнопки во время загрузки УЛУЧШИТЬ
-  loading(isLoading) {
-    if (isLoading) {
-      this._popupButton.textContent = 'Сохранение...'
+  submitLoading(data) {
+    if (data) {
+      this._popupButton.textContent = "Сохранение...";
     } else {
       this._popupButton.textContent = this._popupButtonText;
     }
