@@ -28,22 +28,25 @@ var Api = /*#__PURE__*/function () {
       "Content-Type": "application/json"
     };
   }
-  /** Загрузка информации о пользователе с сервера. */
-
 
   _createClass(Api, [{
+    key: "_checkResponse",
+    value: function _checkResponse(res) {
+      if (res.ok) {
+        return res.json();
+      }
+
+      return Promise.reject("\u041E\u0448\u0438\u0431\u043A\u0430 ".concat(res.status));
+    }
+    /** Загрузка информации о пользователе с сервера. */
+
+  }, {
     key: "getUserInfo",
     value: function getUserInfo() {
       return fetch("https://nomoreparties.co/v1/cohort-43/users/me", {
         method: "GET",
         headers: this._headers
-      }).then(function (res) {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject("Возникла ошибка");
-      });
+      }).then(this._checkResponse);
     }
     /** Получение карточек с сервера. */
 
@@ -53,13 +56,7 @@ var Api = /*#__PURE__*/function () {
       return fetch("".concat(this._url, "/cards"), {
         method: "GET",
         headers: this._headers
-      }).then(function (res) {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject("Возникла ошибка");
-      });
+      }).then(this._checkResponse);
     }
     /** Редактирование профиля. */
 
@@ -73,13 +70,7 @@ var Api = /*#__PURE__*/function () {
           name: data.title,
           about: data.status
         })
-      }).then(function (res) {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject("Возникла ошибка");
-      });
+      }).then(this._checkResponse);
     }
     /** Добавление новой карточки. */
 
@@ -93,13 +84,7 @@ var Api = /*#__PURE__*/function () {
           name: item.name,
           link: item.link
         })
-      }).then(function (res) {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject("Возникла ошибка");
-      });
+      }).then(this._checkResponse);
     }
     /** Удаления карточки. */
 
@@ -109,13 +94,7 @@ var Api = /*#__PURE__*/function () {
       return fetch("".concat(this._url, "/cards/").concat(data._id), {
         method: "DELETE",
         headers: this._headers
-      }).then(function (res) {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject("Возникла ошибка");
-      });
+      }).then(this._checkResponse);
     }
     /** Постановка и снятие лайка. */
 
@@ -125,13 +104,7 @@ var Api = /*#__PURE__*/function () {
       return fetch("".concat(this._url, "/cards/").concat(data._id, "/likes"), {
         method: "PUT",
         headers: this._headers
-      }).then(function (res) {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject("Возникла ошибка");
-      });
+      }).then(this._checkResponse);
     }
   }, {
     key: "removeLike",
@@ -139,13 +112,7 @@ var Api = /*#__PURE__*/function () {
       return fetch("".concat(this._url, "/cards/").concat(data._id, "/likes"), {
         method: "DELETE",
         headers: this._headers
-      }).then(function (res) {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject("Возникла ошибка");
-      });
+      }).then(this._checkResponse);
     }
     /** Обновление аватара пользователя. */
 
@@ -158,13 +125,7 @@ var Api = /*#__PURE__*/function () {
         body: JSON.stringify({
           avatar: item["edit-avatar"]
         })
-      }).then(function (res) {
-        if (res.ok) {
-          return res.json();
-        }
-
-        return Promise.reject("Возникла ошибка");
-      });
+      }).then(this._checkResponse);
     }
   }]);
 
