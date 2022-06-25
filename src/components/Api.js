@@ -7,18 +7,21 @@ export class Api {
     };
   }
 
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка ${res.status}`);
+  }
+
+
   /** Загрузка информации о пользователе с сервера. */
 
   getUserInfo() {
     return fetch("https://nomoreparties.co/v1/cohort-43/users/me", {
       method: "GET",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Возникла ошибка");
-    });
+    }).then(this._checkResponse);
   }
 
   /** Получение карточек с сервера. */
@@ -26,12 +29,7 @@ export class Api {
     return fetch(`${this._url}/cards`, {
       method: "GET",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Возникла ошибка");
-    });
+    }).then(this._checkResponse);
   }
 
   /** Редактирование профиля. */
@@ -41,12 +39,7 @@ export class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({ name: data.title, about: data.status }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Возникла ошибка");
-    });
+    }).then(this._checkResponse);
   }
 
   /** Добавление новой карточки. */
@@ -59,12 +52,7 @@ export class Api {
         name: item.name,
         link: item.link,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Возникла ошибка");
-    });
+    }).then(this._checkResponse);
   }
 
   /** Удаления карточки. */
@@ -73,12 +61,7 @@ export class Api {
     return fetch(`${this._url}/cards/${data._id}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Возникла ошибка");
-    });
+    }).then(this._checkResponse);
   }
 
   /** Постановка и снятие лайка. */
@@ -87,24 +70,14 @@ export class Api {
     return fetch(`${this._url}/cards/${data._id}/likes`, {
       method: "PUT",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Возникла ошибка");
-    });
+    }).then(this._checkResponse);
   }
 
   removeLike(data) {
     return fetch(`${this._url}/cards/${data._id}/likes`, {
       method: "DELETE",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Возникла ошибка");
-    });
+    }).then(this._checkResponse);
   }
 
   /** Обновление аватара пользователя. */
@@ -114,11 +87,6 @@ export class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({ avatar: item["edit-avatar"] }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject("Возникла ошибка");
-    });
+    }).then(this._checkResponse);
   }
 }
